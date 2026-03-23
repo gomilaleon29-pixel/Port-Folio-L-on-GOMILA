@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stage de 1ère Année | Portfolio BTS SIO</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15,23,42,0.95);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    header {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 0 10%;
+      background: linear-gradient(135deg, #2563eb, #0f172a);
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+    }
+
+    section {
+      padding: 5rem 10%;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: #60a5fa;
+    }
+
+    .card {
+      background: #020617;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    ul {
+      text-align: left;
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      background: #2563eb;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #020617;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="Portfolio Léon GOMILA.html#projets"><button>Retour aux projets</button></a>
+</nav>
+
+<header>
+  <div>
+    <h1>Projet Alpines</h1>
+    <p>Restaurant Traditionnel</p>
+  </div>
+</header>
+
+<section>
+  <h2>Présentation du projet</h2>
+  <div class="card">
+    <p>
+      Ce premier projet etait l'un des projet individuel au choix à réaliser dans le cadre de l'epreuve Technique E6 du BTS SIO.
+      <br><br>
+      Ce projet avait pour but de se metre dans la developpeur et concevoir une plateforme de réservation dédiée aux activités de montagne. 
+      <br><br>
+      Aventures Alpines permet aux utilisateurs de découvrir et réserver leurs aventures en montagne. 
+    </p>
+    <p style="margin-top:1rem;">
+      <strong>Entreprise :</strong> Aventures Alpines<br>
+      <strong>Période :</strong> De Janvier à Mars 2025<br>
+      <strong>Lieu :</strong> Domicile ou 8 rue Henri Durand<br>
+      
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Missions réalisées</h2>
+  <div class="card">
+    <ul>
+      <li>Analyse des besoins de l’entreprise</li>
+      <li>Participation au développement d’une application</li>
+      <li>Maintenance et amélioration de fonctionnalités existantes</li>
+      <li>Tests et corrections</li>
+      <li>Rédaction de documentation technique</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Technologies et outils utilisés</h2>
+  <div class="grid">
+    <div class="card">React (Frontend)</div>
+    <div class="card">Node.js (Backend)</div>
+    <div class="card">MySQL (Base de données)</div>
+    <div class="card">GitHub (Versioning)</div>
+    <div class="card">JavaScript (Langage)</div>
+    <div class="card">API Rest (Architecture)</div>
+  </div>
+</section>
+
+
+  <div style="margin-top:2rem; display:flex; gap:1rem;">
+    <a href="NOTE DE SYNTHESE Robigus.pdf"><button>Voir ma note de synthèse</button></a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024-2026 – Portfolio BTS SIO | Léon GOMILA</p>
+</footer>
+
+</body>
+</html>

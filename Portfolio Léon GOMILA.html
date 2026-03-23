@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | BTS SIO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    header {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      padding: 0 10%;
+      background: linear-gradient(135deg, #2563eb, #0f172a);
+    }
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    header p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      text-align: left;
+    }
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(15,23,42,0.9);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #60a5fa; }
+    section { padding: 5rem 10%; }
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: #60a5fa;
+    }
+    .card {
+      background: #020617;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    /* CERTIFICATIONS */
+    .cert {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .cert:hover { transform: translateY(-6px); }
+    .cert-logo {
+  width: 220px;      
+  height: 220px;
+  object-fit: contain;
+}
+
+    .cert-hover {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s;
+      margin-top: 0.1rem;
+      font-size: 0.9rem;
+    }
+    .cert:hover .cert-hover {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* TIMELINE PARCOURS */
+    .timeline {
+      position: relative;
+      margin-top: 3rem;
+      padding-left: 40px;
+      border-left: 3px solid #60a5fa;
+    }
+    .timeline::before {
+      content: '2026 – 2019';
+      position: absolute;
+      left: -90px;
+      top: 50%;
+      transform: rotate(-90deg) translateY(-50%);
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(96,165,250,0.08);
+      white-space: nowrap;
+    }
+    .timeline-item {
+      margin-bottom: 3rem;
+      position: relative;
+      padding-left: 10px;
+      transition: transform 0.3s;
+    }
+    .timeline-item:hover {
+      transform: translateX(8px);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -14px;
+      top: 8px;
+      width: 22px;
+      height: 22px;
+      background: #2563eb;
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(96,165,250,0.15);
+    }
+    .timeline-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+    .timeline-date {
+      font-weight: 600;
+      color: #60a5fa;
+    }
+    .timeline-content h3 {
+      margin: 0.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #020617;
+      font-size: 0.9rem;
+    }
+    button {
+      background: #2563eb;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* HERO PHOTO */
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+    }
+    .hero-photo img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #60a5fa;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+
+      transform: scale(1.15);
+    }
+    .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.contact-logo {
+  width: 26px;      
+  height: 26px;
+  object-fit: contain;
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card {
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#accueil">Accueil</a>
+  <a href="#apropos">À propos</a>
+  <a href="#parcours">Parcours</a>
+  <a href="#cv">CV</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#bts">BTS SIO</a>
+  <a href="#projets">Projets</a>
+  <a href="#veilles">Veilles</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header id="accueil">
+  <div>
+    <h1>Bien venu dans mon portfolio</h1>
+    <p>Léon GOMILA</p>
+    <p>Étudiant en BTS SIO à l'ESM de Joinville-Le-Pont</p>
+  </div>
+
+  <div class="hero-photo">
+    <img src="moi.png" alt="Photo de profil">
+  </div>
+</header>
+
+<section id="apropos">
+  <h2>À propos</h2>
+  <div class="card">
+     <p>
+  Je m’appelle Léon GOMILA, j’ai 20 ans et je suis étudiant à l’Ensemble Sainte-Marie de Joinville-Le-Pont en BTS SIO, option SLAM (Solutions Logicielles et Applications Métiers).
+<br><br>
+Je ne suis pas un grand passionné d’informatique à l’origine. Mon intérêt pour ce domaine provient principalement du fait qu’il s’agit d’un secteur professionnel d’avenir. De plus, étant un grand adepte de jeux vidéo, c’est tout naturellement que l’informatique et plus particulièrement le développement m’a toujours intrigué.
+  </p>
+  </div>
+</section>
+
+<section id="parcours">
+  <h2>Parcours</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <span class="timeline-date">2020 – 2024</span>
+      <div class="timeline-content">
+        <h3>
+        <img src="lcl.png" alt="STMG" class="timeline-logo">
+        Bac Technologique STMG Option SIG
+        </h3>
+        <p>Lycée Sainte Catherine Labouré, Paris 75014.</p>
+        <br><br>
+        <a href="https://www.saintecatherinelaboure.com/"><button>Voir le site</button></a>
+        <a href="Notes bac.pdf"><button>Voir note du bac</button></a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-date">2024 – en cours</span>
+      <div class="timeline-content">
+        <h3>
+        <img src="esm.png" alt="BTS SIO" class="timeline-logo">
+        BTS Services Informatiques aux Organisations (SIO) option SLAM 
+        </h3>
+        <p>Ensemble Sainte-Marie, Joinville-Le-Pont 94340</p>
+        <br><br>
+        <a href="https://ensemblesaintemarie.fr/superieur/"><button>Voir le site</button></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="cv">
+  <h2>CV</h2>
+  <div class="card">
+    <p>Téléchargez mon CV au format PDF pour plus de détails sur mon profil.</p>
+     <a href="CV .pdf"><button>Visualiser mon CV</button></a>
+  </div>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div class="grid">
+
+
+    <div class="card cert">
+      <div class="cert-icon">
+  <img src="opencr.png" alt="OpenClassrooms" class="cert-logo">
+</div>
+      <div class="cert-hover">
+         <p>•  Initiez-vous au test et à la qualité logiciel</p>
+         <p>•  Ecrivez la documentation technique de votre projet </p>
+         <p>•  Initiez-vous au Deep Learning</p>
+         <p>•  Objectif IA : initez-vous à l'intelligence artificielle</p>
+         <p>•  Gerez votre projet informatique facilement</p>
+         <p>•  Initiez-vous à la gestion de projet agile</p>
+         <p>•  Gérer du code avec Git et GitHub</p>
+         <p>•  Sécurisez vos applications</p>
+         <p>•  Protégez vos système numériques connectés grace aux 12 pratiques de l'ANSSI</p>
+         <p>•  Découvrez les bases de la sécurité numériques</p>
+         <p>•  Analysez et gerez des risques SI</p>
+        <br><br>
+        <a href="MES CERTIFICATIONS OPENCLASSROOM.pdf"><button>Voir mes Certifications</button></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="bts">
+  <h2>BTS SIO</h2>
+  <div class="card">
+    <img src="SIO-removebg-preview.png" alt="BTS SIO" class="cert-logo">
+    <p>Le BTS Services Informatiques aux Organisations (SIO) est une formation post-bac d’une durée de 2 ans avec, pour finalité au bout, la possibilité d’obtention d’un diplôme de brevet de Technicien Supérieur (BTS). Dans cette filière, la programmation est enseignée les étudiants avec le développement web et le développement logiciel mais aussi les réseaux informatiques, se séparant en 2 options distinctes à choisir par les étudiants dès la première année : SLAM ou SISR</p>
+    <div style="overflow-x:auto; margin-top:2rem;">
+      <table style="width:100%; border-collapse:collapse; color:#e6e9e7;">
+        <thead>
+          <tr style="background:#490bf5; color:white;">
+            <th style="padding:1rem;">Options</th>
+            <th style="padding:1rem;">SISR</th>
+            <th style="padding:1rem;">SLAM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th style="background:#0b88f5; color:white; padding:1rem;">Notions</th>
+            <td style="background:#080138; padding:1rem;">
+              – Gestion des infrastructures informatiques<br>
+              – Réseaux<br>
+              – Systèmes d’exploitation & sécurité<br>
+              – Administration et sécurisation des équipements<br>
+              – Virtualisation<br>
+              – Mise en place de services systèmes
+            </td>
+            <td style="background:#080138; padding:1rem;">
+              – Développement d’applications<br>
+              – Conception logicielle<br>
+              – Maintenance applicative<br>
+              – Programmation multi-langages<br>
+              – Interfaces utilisateurs<br>
+              – Gestion des bases de données<br>
+              – Solutions logicielles métiers
+            </td>
+          </tr>
+          <tr>
+            <th style="background:#0b88f5; color:white; padding:1rem;">Débouchés possibles</th>
+            <td style="background:#080138; padding:1rem;">
+              – Technicien systèmes et réseaux<br>
+              – Administrateur systèmes & réseaux<br>
+              – Technicien d’infrastructure<br>
+              – Support systèmes et réseaux<br>
+              – Pilote d’exploitation<br>
+              – Gestionnaire de parc informatique
+            </td>
+            <td style="background:#080138; padding:1rem;">
+              – Développeur informatique<br>
+              – Analyste programmeur<br>
+              – Chargé d’études informatiques<br>
+              – Programmeur analyste<br>
+              – Responsable d’applications
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+  </div>
+</section>
+
+
+<section id="projets">
+  <h2>Projets</h2>
+  <div class="grid">
+      <a href="Transgregpage.html" class="project-link">
+      <div class="card project-card">Stage de 1ère Année
+        <img src="Capture_d_écran_2025-09-30_113544-removebg-preview.png" alt="Transgreg" class="cert-logo">
+      </div>
+    </a>
+     <a href="Robiguspage.html" class="project-link">
+      <div class="card project-card">Stage de 2ème Année
+        <img src="Capture d'écran 2026-01-12 092616.png" alt="Stage2A" class="cert-logo">
+      </div>
+    </a> 
+      <a href="MDL.html" class="project-link">
+      <div class="card project-card">Projet Maison des Ligues
+      <img src="Capture_d_écran_2026-02-02_235032-removebg-preview.png" alt="MDL" class="cert-logo">
+      </div>
+    </a>
+     <a href="Alpine.html" class="project-link">
+      <div class="card project-card">Projet Alpines
+       <img src="pngtree-mountain-logo-element-vector-emblem-isolated-background-white-image_350214-removebg-preview.png" alt="Alpines" class="cert-logo">
+    </div>
+    </a>
+      <a href="Javastock.html" class="project-link">
+      <div class="card project-card">Projet Javastock
+        <img src="solutions-GestionStock2.png" alt="Javastock" class="cert-logo">
+      </div>
+    </a>
+    </div>
+  </div>
+</section>
+  
+<section id="veilles">
+  <h2>Veilles</h2>
+  <div class="grid">
+
+    <a href="Veilletechno.html" class="project-link">
+      <div class="card cert project-card">
+        <div class="cert-icon">🧠</div>
+        <h3>Veille technologique</h3>
+        <div class="cert-hover">
+          <p>• Langages & frameworks</p>
+          <p>• Back-End / Front-End</p>
+          <p>• Intelligence artificielle</p>
+        </div>
+      </div>
+    </a>
+
+    <a href="Veillecyber.html" class="project-link">
+      <div class="card cert project-card">
+        <div class="cert-icon">🛡️</div>
+        <h3>Veille cybersécurité</h3>
+        <div class="cert-hover">
+          <p>• Vulnérabilités récentes</p>
+          <p>• ANSSI / CERT-FR</p>
+          <p>• Bonnes pratiques de sécurité</p>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+  
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+
+    <p class="contact-item">
+      <img src="Maison-removebg-preview.png" alt="Adresse" class="contact-logo">
+      83 rue de Paris, Charenton-Le-Pont 94220
+    </p>
+
+    <p class="contact-item">
+      <img src="pngtree-email-icon-with-blue-square-vector-symbol-3d-png-image_20826427-removebg-preview.png" alt="Email" class="contact-logo">
+      gomilaleon29@gmail.com
+    </p>
+
+    <p class="contact-item">
+      <img src="Logo-telephone-PNG-bleu-removebg-preview.png" alt="Téléphone" class="contact-logo">
+      07.66.23.22.12
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2024-2026 – Portfolio BTS SIO Léon GOMILA</p>
+</footer>
+
+</body>
+</html>
+
+
+
